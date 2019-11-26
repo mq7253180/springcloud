@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <!-- <property resource="application.properties" /> -->
+    <appender name="stdout" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>[%d{yyyy-MM-dd HH:mm:ss SSS} %-5p] [%t] %c{3} - %m%n</pattern>
+            <charset>UTF-8</charset>
+        </encoder>
+    </appender>
+    <appender name="Roll" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <File>${path.log.logback}/ducati-springboot.log</File>
+        <encoder>
+            <pattern>[%d{yyyy-MM-dd HH:mm:ss SSS} %-5p] [%t] %c{3} - %m%n</pattern>
+            <charset>UTF-8</charset>
+        </encoder>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <!-- daily rollover -->
+            <fileNamePattern>${path.log.logback}/%d{yyyyMMdd}/ducati-springboot.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+            <timeBasedFileNamingAndTriggeringPolicy
+                class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">`	
+                <!-- or whenever the file size reaches 50MB -->
+                <maxFileSize>10MB</maxFileSize>
+            </timeBasedFileNamingAndTriggeringPolicy>
+            <!-- keep 30 days' worth of history -->
+            <maxHistory>200</maxHistory>
+        </rollingPolicy>
+    </appender>
+    <root level="${log.level}">
+        <appender-ref ref="stdout"/>
+        <appender-ref ref="Roll"/>
+    </root>
+    
+	<appender name="RocketmqClientAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${path.log.logback}/rocketmq_client.log</file>
+        <append>true</append>
+        <rollingPolicy class="ch.qos.logback.core.rolling.FixedWindowRollingPolicy">
+            <fileNamePattern>${path.log.logback}/%d{yyyyMMdd}/rocketmq_client.%d{yyyy-MM-dd}.%i.log
+            </fileNamePattern>
+            <minIndex>1</minIndex>
+            <maxIndex>10</maxIndex>
+        </rollingPolicy>
+        <triggeringPolicy class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
+            <maxFileSize>10MB</maxFileSize>
+        </triggeringPolicy>
+        <encoder>
+            <pattern>%d{yyy-MM-dd HH:mm:ss,GMT+8} %p %t - %m%n</pattern>
+            <charset class="java.nio.charset.Charset">UTF-8</charset>
+        </encoder>
+	</appender>
+    <logger name="RocketmqCommon" additivity="false">
+        <level value="${log.level}"/>
+        <appender-ref ref="RocketmqClientAppender"/>
+    </logger>
+    <logger name="RocketmqRemoting" additivity="false">
+        <level value="${log.level}"/>
+        <appender-ref ref="RocketmqClientAppender"/>
+    </logger>
+    <logger name="RocketmqClient" additivity="false">
+        <level value="${log.level}"/>
+        <appender-ref ref="RocketmqClientAppender"/>
+    </logger>
+</configuration>
