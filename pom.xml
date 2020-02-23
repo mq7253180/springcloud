@@ -48,6 +48,7 @@
 				<path.log.logback>/Users/maqiang/tmp/logs/springcloud</path.log.logback>
 				<log.level>INFO</log.level>
 				<eureka.instance.hostname>localhost</eureka.instance.hostname>
+				<cfgLocation>file:/Users/maqiang/github/quincy/configuration</cfgLocation>
 			</properties>
 			<activation>
 				<activeByDefault>true</activeByDefault>
@@ -60,6 +61,7 @@
 				<path.log.logback>/quincy/tmp/logs/springcloud</path.log.logback>
 				<log.level>WARN</log.level>
 				<eureka.instance.hostname>springcloud.maqiangcgq.com</eureka.instance.hostname>
+				<cfgLocation>file:/quincy/github/configuration</cfgLocation>
 			</properties>
 		</profile>
 	</profiles>
