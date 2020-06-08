@@ -78,11 +78,11 @@
 				</configuration>
 				<!-- 显示/actuator/info内容 -->
 				<executions>
-	                	<execution>
-	                    	<goals>
-	                        	<goal>build-info</goal>
-	                    	</goals>
-	                	</execution>
+					<execution>
+						<goals>
+							<goal>build-info</goal>
+						</goals>
+					</execution>
 				</executions>
 			</plugin>
 			<plugin>
