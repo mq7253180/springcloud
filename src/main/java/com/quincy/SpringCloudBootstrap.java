@@ -7,7 +7,9 @@ import org.springframework.cloud.config.server.EnableConfigServer;
 import org.springframework.cloud.netflix.eureka.server.EnableEurekaServer;
 import org.springframework.cloud.netflix.hystrix.dashboard.EnableHystrixDashboard;
 import org.springframework.cloud.netflix.zuul.EnableZuulProxy;
+import org.springframework.retry.annotation.EnableRetry;
 
+@EnableRetry
 @EnableHystrixDashboard
 @EnableConfigServer
 @EnableZuulProxy
