@@ -5,14 +5,13 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.ApplicationPidFileWriter;
 import org.springframework.cloud.config.server.EnableConfigServer;
 import org.springframework.cloud.netflix.eureka.server.EnableEurekaServer;
-import org.springframework.cloud.netflix.hystrix.dashboard.EnableHystrixDashboard;
-import org.springframework.cloud.netflix.zuul.EnableZuulProxy;
+//import org.springframework.cloud.netflix.hystrix.dashboard.EnableHystrixDashboard;
 import org.springframework.retry.annotation.EnableRetry;
 
 @EnableRetry
-@EnableHystrixDashboard
+//@EnableHystrixDashboard
 @EnableConfigServer
-@EnableZuulProxy
+//@EnableZuulProxy
 @EnableEurekaServer
 @SpringBootApplication
 //@ComponentScan(basePackages= {"com.*"})
