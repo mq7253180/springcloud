@@ -116,6 +116,49 @@
 					<useDefaultDelimiters>true</useDefaultDelimiters>
 				</configuration>
 			</plugin>
+			<plugin>
+				<groupId>com.spotify</groupId>
+				<artifactId>docker-maven-plugin</artifactId>
+				<version>1.2.2</version>
+				<configuration>
+					<imageName>quincy/spcl</imageName>
+					<imageTags>
+						<imageTag>1.0</imageTag>
+					</imageTags>
+					<forceTags>true</forceTags>
+					<!-- <dockerHost>http://localhost:2375</dockerHost>
+					<registryUrl>localhost:5000</registryUrl>
+					<pushImage>true</pushImage>
+					<pushImageTag>true</pushImageTag> -->
+
+					<!-- Dockerfile两种方式 -->
+					<!-- 方式一：插件自动生成 -->
+					<baseImage>openjdk:17</baseImage>
+					<workdir>/application/quincy</workdir>
+					<cmd>["java", "-version"]</cmd>
+					<entryPoint>["java", "-jar", "${project.build.finalName}.jar"]</entryPoint>
+					<maintainer>mq7253180@126.com</maintainer>
+
+					<!-- 方式二：手动编写 -->
+					<!-- 指定Dockerfile所在目录，会将该目录下所有文件复制到targetPath，所以将Dockerfile单独放在一个目录中，还可以将配置jvm参数的conf文件放在里面一起被复制过去 -->
+					<!-- <dockerDirectory>${pom.basedir}/docker</dockerDirectory> -->
+					<resources>
+						<!-- targetPath的根目录是工程目录中的target/docker目录，Dockerfile、jar和conf等文件都会被复制过来，并添加到镜像中的对应目录中 -->
+						<resource>
+							<!-- 复制jar文件 -->
+							<targetPath>/application/quincy</targetPath>
+							<directory>${project.build.directory}</directory>
+							<include>${project.build.finalName}.jar</include>
+						</resource>
+						<!-- 复制conf文件，方式二不需要 -->
+						<resource>
+							<targetPath>/application/quincy</targetPath>
+							<directory>${pom.basedir}/docker/application/quincy</directory>
+							<include>${project.build.finalName}.conf</include>
+						</resource>
+					</resources>
+				</configuration>
+			</plugin>
 		</plugins>
 		<resources>
 			<resource>
