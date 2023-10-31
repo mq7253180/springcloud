@@ -49,6 +49,7 @@
 				<log.level>INFO</log.level>
 				<eureka.instance.hostname>localhost</eureka.instance.hostname>
 				<cfgLocation>file:/Users/maqiang/github/quincy/configuration</cfgLocation>
+				<eureka.instance.hostname>localhost</eureka.instance.hostname>
 			</properties>
 			<activation>
 				<activeByDefault>true</activeByDefault>
@@ -63,6 +64,7 @@
 				<log.level>WARN</log.level>
 				<eureka.instance.hostname>springcloud.maqiangcgq.com</eureka.instance.hostname>
 				<cfgLocation>file:/quincy/github/configuration</cfgLocation>
+				<eureka.instance.hostname>47.93.89.0</eureka.instance.hostname>
 			</properties>
 		</profile>
 	</profiles>
