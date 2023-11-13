@@ -159,7 +159,7 @@
 							<include>${project.build.finalName}.conf</include>
 						</resource>
 					</resources>
-					<serverId>docker-registry</serverId>
+					<serverId>docker-registry</serverId><!-- 对应maven的settings.xml中server节点的id节点的值，以获取用户名和密码 -->
 					<registryUrl>https://registry.maqiang777.com</registryUrl>
 					<!--<registryUrl>http://47.93.89.0:5000</registryUrl>-->
 				</configuration>
