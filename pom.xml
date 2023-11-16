@@ -46,9 +46,7 @@
 				<env>pro</env>
 				<spring.pid.file>/Users/maqiang/tmp/springcloud.pid</spring.pid.file>
 				<path.log.logback>/Users/maqiang/tmp/logs/springcloud</path.log.logback>
-				<cfgLocation>file:/Users/maqiang/github/quincy/configuration</cfgLocation>
 				<log.level>WARN</log.level>
-				<eureka.instance.hostname>spcl.maqiang777.com</eureka.instance.hostname>
 			</properties>
 			<activation>
 				<activeByDefault>true</activeByDefault>
