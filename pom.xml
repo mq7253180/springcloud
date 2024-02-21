@@ -41,16 +41,27 @@
 	</repositories>
 	<profiles>
 		<profile>
-			<id>pro</id>
+			<id>dev</id>
 			<properties>
-				<env>pro</env>
+				<env>dev</env>
 				<spring.pid.file>/Users/maqiang/tmp/springcloud.pid</spring.pid.file>
 				<path.log.logback>/Users/maqiang/tmp/logs/springcloud</path.log.logback>
+				<spring.cloud.config.server.native.searchLocations>file:/Users/maqiang/github/quincy/configuration</spring.cloud.config.server.native.searchLocations>
 				<log.level>WARN</log.level>
 			</properties>
 			<activation>
 				<activeByDefault>true</activeByDefault>
 			</activation>
+		</profile>
+		<profile>
+			<id>pro</id>
+			<properties>
+				<env>pro</env>
+				<spring.pid.file>/quincy/tmp/springcloud.pid</spring.pid.file>
+				<path.log.logback>/quincy/tmp/logs/springcloud</path.log.logback>
+				<spring.cloud.config.server.native.searchLocations>file:/quincy/github/configuration</spring.cloud.config.server.native.searchLocations>
+				<log.level>WARN</log.level>
+			</properties>
 		</profile>
 	</profiles>
 	<build>
