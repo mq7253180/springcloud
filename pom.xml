@@ -44,10 +44,11 @@
 			<id>dev</id>
 			<properties>
 				<env>dev</env>
+				<log.level>WARN</log.level>
 				<spring.pid.file>/Users/maqiang/tmp/springcloud.pid</spring.pid.file>
 				<path.log.logback>/Users/maqiang/tmp/logs/springcloud</path.log.logback>
 				<spring.cloud.config.server.native.searchLocations>file:/Users/maqiang/github/quincy/configuration</spring.cloud.config.server.native.searchLocations>
-				<log.level>WARN</log.level>
+				<prefix.resource>/static</prefix.resource>
 			</properties>
 			<activation>
 				<activeByDefault>true</activeByDefault>
@@ -57,10 +58,11 @@
 			<id>pro</id>
 			<properties>
 				<env>pro</env>
+				<log.level>WARN</log.level>
 				<spring.pid.file>/quincy/tmp/springcloud.pid</spring.pid.file>
 				<path.log.logback>/quincy/tmp/logs/springcloud</path.log.logback>
 				<spring.cloud.config.server.native.searchLocations>file:/quincy/github/configuration</spring.cloud.config.server.native.searchLocations>
-				<log.level>WARN</log.level>
+				<prefix.resource>/static</prefix.resource>
 			</properties>
 		</profile>
 	</profiles>
@@ -206,6 +208,22 @@
 		<dependency>
 			<groupId>org.springframework.retry</groupId>
 			<artifactId>spring-retry</artifactId>
+		</dependency>
+		<dependency>
+		    <groupId>jakarta.persistence</groupId>
+		    <artifactId>jakarta.persistence-api</artifactId>
+		</dependency>
+		<dependency>
+		    <groupId>org.springframework.boot</groupId>
+		    <artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+		<dependency>
+		    <groupId>org.springframework.boot</groupId>
+		    <artifactId>spring-boot-starter-freemarker</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
 		</dependency>
 		<!--<dependency>
 		    <groupId>org.springframework.cloud</groupId>
