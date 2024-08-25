@@ -9,7 +9,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupp
 
 import jakarta.annotation.PostConstruct;
 
-@Configuration
+//@Configuration
 public class TestConfiguration extends WebMvcConfigurationSupport {
 	@Autowired
 	private ApplicationContext applicationContext;
