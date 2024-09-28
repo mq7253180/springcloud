@@ -59,8 +59,8 @@
 			<properties>
 				<env>pro</env>
 				<log.level>WARN</log.level>
-				<spring.pid.file>/quincy/tmp/springcloud.pid</spring.pid.file>
-				<path.log.logback>/quincy/tmp/logs/springcloud</path.log.logback>
+				<spring.pid.file>/logs/springcloud.pid</spring.pid.file>
+				<path.log.logback>/logs/springcloud</path.log.logback>
 				<spring.cloud.config.server.native.searchLocations>file:/quincy/github/configuration</spring.cloud.config.server.native.searchLocations>
 				<prefix.resource>/static</prefix.resource>
 			</properties>
